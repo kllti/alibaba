@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里巴巴国际站运营解答网</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alibaba: '#FF6A00',
+                        alibabaLight: '#FFF1E6',
+                        alibabaDark: '#E55A00',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fa fa-globe text-alibaba text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Alibaba运营解答</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-alibaba px-3 py-2 text-sm font-medium transition-colors">首页</a>
+                        <a href="#categories" class="text-gray-700 hover:text-alibaba px-3 py-2 text-sm font-medium transition-colors">问题分类</a>
+                        <a href="#faq" class="text-gray-700 hover:text-alibaba px-3 py-2 text-sm font-medium transition-colors">常见问题</a>
+                        <a href="#tools" class="text-gray-700 hover:text-alibaba px-3 py-2 text-sm font-medium transition-colors">工具指南</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="md:hidden text-gray-500 hover:text-gray-700" id="mobile-menu-button">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-alibaba hover:bg-alibabaLight rounded-md">首页</a>
+                <a href="#categories" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-alibaba hover:bg-alibabaLight rounded-md">问题分类</a>
+                <a href="#faq" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-alibaba hover:bg-alibabaLight rounded-md">常见问题</a>
+                <a href="#tools" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-alibaba hover:bg-alibabaLight rounded-md">工具指南</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Banner -->
+    <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-alibabaLight to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-shadow">
+                阿里巴巴国际站<span class="text-alibaba">运营解答</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                一站式解决你在Alibaba国际站运营中的所有问题，从新手入门到资深运营，帮你快速提升店铺效果
+            </p>
+            <!-- 搜索框 -->
+            <div class="max-w-2xl mx-auto relative">
+                <input type="text" id="search-input" placeholder="搜索你遇到的运营问题，比如：Accio价格、P4P优化..." 
+                    class="w-full px-6 py-4 rounded-full shadow-lg border-0 focus:ring-2 focus:ring-alibaba focus:outline-none text-lg">
+                <button class="absolute right-2 top-2 bg-alibaba hover:bg-alibabaDark text-white px-6 py-2 rounded-full transition-colors">
+                    <i class="fa fa-search mr-1"></i> 搜索
+                </button>
+            </div>
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+                <span class="text-sm text-gray-500">热门搜索：</span>
+                <a href="#accio-guide" class="text-sm text-alibaba hover:underline">Accio工具</a>
+                <a href="#p4p-faq" class="text-sm text-alibaba hover:underline">P4P推广</a>
+                <a href="#newbie-guide" class="text-sm text-alibaba hover:underline">新手入门</a>
+                <a href="#询盘转化" class="text-sm text-alibaba hover:underline">询盘转化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类板块 -->
+    <section id="categories" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">问题分类</h2>
+                <p class="text-gray-600">按你的运营阶段，快速找到对应的解答</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 新手入门 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border border-gray-100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-rocket text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">新手入门</h3>
+                    <p class="text-gray-600 mb-4">刚开店不知道从哪下手？从账号注册到产品上架，帮你快速上手</p>
+                    <a href="#newbie-faq" class="text-alibaba font-medium hover:underline flex items-center">
+                        查看问题 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <!-- 流量运营 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border border-gray-100">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-line-chart text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">流量运营</h3>
+                    <p class="text-gray-600 mb-4">怎么提升自然排名？如何获取更多免费流量？优化你的店铺曝光</p>
+                    <a href="#traffic-faq" class="text-alibaba font-medium hover:underline flex items-center">
+                        查看问题 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <!-- 询盘转化 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border border-gray-100">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-comments text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">询盘转化</h3>
+                    <p class="text-gray-600 mb-4">有曝光没询盘？怎么提高客户回复率？帮你把流量变成订单</p>
+                    <a href="#inquiry-faq" class="text-alibaba font-medium hover:underline flex items-center">
+                        查看问题 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                <!-- 工具指南 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover border border-gray-100">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-wrench text-alibaba text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">工具指南</h3>
+                    <p class="text-gray-600 mb-4">Accio、P4P、数据管家...平台工具怎么用？帮你用好工具提效</p>
+                    <a href="#tools-faq" class="text-alibaba font-medium hover:underline flex items-center">
+                        查看问题 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">常见问题解答</h2>
+                <p class="text-gray-600">运营者最常问的问题，这里都有答案</p>
+            </div>
+
+            <!-- 新手入门问题 -->
+            <div id="newbie-faq" class="mb-10">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <i class="fa fa-rocket text-blue-600 mr-2"></i> 新手入门
+                </h3>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">刚开国际站，第一步应该做什么？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">新手开店建议按这个顺序来：</p>
+                            <ol class="list-decimal pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>先完善店铺基础信息：公司介绍、主营产品、认证资料</li>
+                                <li>完成店铺装修：首页、产品详情页模板，提升专业度</li>
+                                <li>上架首批产品：建议先上架20-30个高质量产品，覆盖核心关键词</li>
+                                <li>优化产品信息：确保标题、关键词、详情页符合平台规则</li>
+                                <li>开启基础引流：先做自然流量优化，再逐步尝试付费推广</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">产品上架多少个比较合适？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">不是越多越好，而是要保证质量：</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>新店初期：20-50个高质量产品就足够，覆盖你的核心品类</li>
+                                <li>稳定运营期：建议保持在100-300个，太多会导致精力分散，很多产品变成零效果的僵尸产品</li>
+                                <li>重点：每个产品都要保证信息质量，五星产品优先，不要批量上传重复产品</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 流量运营问题 -->
+            <div id="traffic-faq" class="mb-10">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <i class="fa fa-line-chart text-green-600 mr-2"></i> 流量运营
+                </h3>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">怎么提升产品的自然排名？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">自然排名的核心是产品权重，主要看这几个维度：</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>关键词匹配：标题、关键词、产品属性要精准覆盖用户搜索词</li>
+                                <li>产品信息质量：五星产品是基础，详情页要完整、专业</li>
+                                <li>交易数据：产品的点击率、询盘率、订单转化率，这些数据越好排名越高</li>
+                                <li>店铺权重：店铺的回复率、好评率、纠纷率，也会影响产品排名</li>
+                                <li>新鲜度：定期更新产品信息，重发零效果产品，保持产品活跃度</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">零效果产品怎么处理？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">零效果产品会拉低店铺整体权重，建议这么处理：</p>
+                            <ol class="list-decimal pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>先看时长：如果是刚上架1周内的，先观察，不用急着处理</li>
+                                <li>15-30天的零效果：修改标题、关键词、主图，重新优化后上架</li>
+                                <li>超过30天的：如果这个产品你还想做，就删掉重新发布；如果不重要，直接下架删除</li>
+                                <li>注意：不要直接重发，直接重发不会改变产品的权重，必须修改核心信息</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 询盘转化问题 -->
+            <div id="inquiry-faq" class="mb-10">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <i class="fa fa-comments text-purple-600 mr-2"></i> 询盘转化
+                </h3>
+                <div class="space-y-3">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">为什么有曝光有点击，但是没有询盘？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">这说明你的产品吸引了用户点击，但没打动用户下单，通常是这几个原因：</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>价格问题：价格太高，或者没有设置阶梯价格，用户看不到批量优惠</li>
+                                <li>主图/详情页：主图不够吸引人，详情页不专业，没有突出产品优势</li>
+                                <li>信任问题：店铺认证不够，没有买家好评，用户不信任你</li>
+                                <li>关键词不匹配：你引流的关键词和产品本身不符，用户点进来发现不是他要的</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">怎么提高客户的回复率？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">回复率的核心是快速、专业、精准：</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>响应速度：1小时内回复，最好是15分钟内，平台的响应率也会影响你的排名</li>
+                                <li>邮件模板：不要用通用模板，要针对客户的问题，针对性回复，开头要提到客户的具体需求</li>
+                                <li>价值展示：除了回答问题，还要主动展示你的优势，比如工厂实力、认证、样品政策</li>
+                                <li>跟进策略：如果客户没回复，2-3天后跟进一次，问他是不是有什么疑问，不要频繁骚扰</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工具指南问题 -->
+            <div id="tools-faq" class="mb-10">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <i class="fa fa-wrench text-alibaba mr-2"></i> 工具指南
+                </h3>
+                <div class="space-y-3">
+                    <div id="accio-guide" class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">Accio是什么？它的订阅价格是多少？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">Accio是阿里巴巴国际站推出的AI采购助手，专为B2B跨境采购打造，能帮你：</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>智能筛选供应商，自动对比价格、资质</li>
+                                <li>分析市场趋势，帮你找到更有优势的货源</li>
+                                <li>自动化询盘跟进，提升采购效率</li>
+                            </ul>
+                            <p class="mt-3 text-gray-600">关于价格：</p>
+                            <ul class="list-disc pl-5 mt-1 space-y-1 text-gray-600">
+                                <li>年度订阅方案：199美元/年，折合人民币约1350-1360元（按2026年汇率）</li>
+                                <li>这个是年付优惠价，折合月费约16.58美元，比月付更划算</li>
+                                <li>订阅时可以输入促销码，能进一步降低成本</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="p4p-faq" class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-gray-800">P4P推广怎么优化才能不烧钱？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <p class="text-gray-600">P4P的核心是精准投放，避免无效点击：</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                                <li>关键词筛选：只投放高转化的精准关键词，不要投太泛的大词，大词点击贵转化低</li>
+                                <li>否定关键词：把那些不相关的、只点击不转化的词加入否定词，避免浪费钱</li>
+                                <li>出价策略：核心词出合理价，长尾词可以出低价，长尾词虽然流量小，但转化高成本低</li>
+                                <li>时段/地域投放：针对你的目标客户的活跃时间和地区投放，不要全时段全地区投放</li>
+                                <li>定期优化：每天看数据，把花费高没转化的词停掉，把有转化的词提高出价抢排名</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具指南板块 -->
+    <section id="tools" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">热门运营工具</h2>
+                <p class="text-gray-600">用好这些工具，帮你提升运营效率</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-alibaba rounded-lg flex items-center justify-center">
+                                <i class="fa fa-robot text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 ml-4">Accio AI采购助手</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">阿里巴巴推出的AI智能采购工具，帮你自动筛选供应商、对比价格、分析市场，把采购效率提升3倍以上。</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                智能供应商筛选与资质核验
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                多供应商价格自动对比
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                市场趋势与行情分析
+                            </li>
+                        </ul>
+                        <a href="#accio-guide" class="inline-block bg-alibaba hover:bg-alibabaDark text-white px-4 py-2 rounded-lg transition-colors">
+                            查看详细指南
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                <i class="fa fa-bullseye text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 ml-4">P4P直通车</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">国际站的付费推广工具，通过关键词竞价获取曝光，帮你快速提升产品排名，获取精准流量。</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                精准关键词投放，获取目标流量
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                按点击付费，成本可控
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fa fa-check text-green-500 mr-2"></i>
+                                数据化优化，实时调整投放策略
+                            </li>
+                        </ul>
+                        <a href="#p4p-faq" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                            查看优化技巧
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fa fa-globe text-alibaba text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">Alibaba运营解答网</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">帮你解决国际站运营的所有问题</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-question-circle text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-book text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                © 2026 Alibaba运营解答网. 仅供学习交流使用.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('bg-white/90');
+                navbar.classList.add('bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/90');
+                navbar.classList.remove('bg-white');
+            }
+        });
+
+        // 移动端菜单
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // FAQ折叠面板
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+                
+                // 关闭其他面板
+                document.querySelectorAll('.faq-toggle').forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        const otherContent = otherToggle.nextElementSibling;
+                        const otherIcon = otherToggle.querySelector('i');
+                        if (!otherContent.classList.contains('hidden')) {
+                            otherContent.classList.add('hidden');
+                            otherIcon.classList.remove('rotate-180');
+                        }
+                    }
+                });
+            });
+        });
+
+        // 搜索功能
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+                if (query.includes('accio') || query.includes('价格')) {
+                    window.scrollTo({
+                        top: document.getElementById('accio-guide').offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    // 自动展开面板
+                    const toggle = document.querySelector('#accio-guide').previousElementSibling;
+                    toggle.click();
+                } else if (query.includes('p4p') || query.includes('推广')) {
+                    window.scrollTo({
+                        top: document.getElementById('p4p-faq').offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    const toggle = document.querySelector('#p4p-faq').previousElementSibling;
+                    toggle.click();
+                } else if (query.includes('新手') || query.includes('入门')) {
+                    window.scrollTo({
+                        top: document.getElementById('newbie-faq').offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                } else if (query.includes('询盘') || query.includes('转化')) {
+                    window.scrollTo({
+                        top: document.getElementById('inquiry-faq').offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
